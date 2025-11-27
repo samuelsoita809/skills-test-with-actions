@@ -1,4 +1,4 @@
-name: Python Coverage
+name: python coverage
 
 on:
   pull_request:
@@ -15,11 +15,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.13
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
@@ -28,7 +28,7 @@ jobs:
           pip install coverage==7.9
           pip install pytest-cov==6.2.1
 
-      - name: Run tests and generate coverage details
+      - name: Run tests and generate coverage
         run: pytest --cov=src
 
       - name: Coverage comment
